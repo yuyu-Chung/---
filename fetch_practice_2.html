@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fetch_practice_2.css">
+</head>
+<body>
+
+    <div class="submit_check"> 
+       <h3>姓名:<input type="text" class="name"></h3>
+       <h3>職業年資:<input type="number" class="careeryear"></h3>
+       <h3>專業:<input type="text" class="professional"></h3>
+       <button type="submit" class="push">送出</button>
+       <button type="button" class="get_data">看資料</button>
+    </div>
+
+    <div class="result"></div>
+
+    <script>
+        const btn = document.querySelector(".push")
+        const find = document.querySelector(".get_data")
+        const resultDiv = document.quertSelector(".result")
+
+
+        btn.addEventListener("click", (e) => {
+               e.preventDefault();
+               let data = {
+                name : document.querySelector(".name").value,
+                careeryear : parseInt(document.querySelector(".careeryear").value),
+                professional : document.querySelector(".professional").value
+               }
+
+               fetch("http://127.0.0.1:5000/add_data_practice_2", {
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(data)
+               })
+        })
+
+        find.addEventListener("click", () =>{
+            fetch("http://127.0.0.1:5000/get_data")
+          })
+
+    
+    </script>
+    
+</body>
+</html>
