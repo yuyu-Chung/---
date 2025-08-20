@@ -8,9 +8,9 @@ from sqlalchemy import String, Integer
 app = Flask(__name__)
 
 user = "YUYU"
-password = "422924Qq"
+password = "4X2X2XQX"
 host = "localhost"
-port = 3306
+port = 3XX6
 schema = "practice_1"
 
 engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}:{port}/{schema}")
@@ -48,4 +48,5 @@ def read_data():
     return html_output
 
 if __name__ =="__main__":
+
     app.run(debug=True)
